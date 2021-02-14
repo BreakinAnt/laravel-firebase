@@ -2,17 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\BackController;
 
-Route::get('/', function () {
-    return json_encode((object)['name' => 'alfredo']);
-});
+Route::get('/users', [BackController::class, 'getUsers']);
+Route::get('/users/{id}', [BackController::class, 'getUser']);
+Route::post('/users', [BackController::class, 'postUser']);
+Route::put('/users/{id}', [BackController::class, 'putUser']);
+Route::delete('/users/{id}', [BackController::class, 'deleteUser']);
